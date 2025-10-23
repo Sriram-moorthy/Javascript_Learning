@@ -1,0 +1,125 @@
+When coding in JavaScript, you’ll often deal with different data types — numbers, strings, booleans, and more.
+Sometimes, JavaScript automatically changes one data type into another.
+Other times, you’ll need to do it manually.
+
+This process is called Type Conversion, and it happens in two ways:
+
+  🔹Implicit Conversion (Type Coercion) — JavaScript does it automatically
+  🔹Explicit Conversion (Type Casting) — You do it manually using functions
+
+Let’s dive deep into both, with examples for numbers, strings, booleans, null, undefined, and NaN. 🚀
+
+🪄 1. Implicit Type Conversion (Type Coercion)
+
+JavaScript automatically converts one type to another depending on the operation.
+
+👉 Example 1: String + Number:
+
+let result = "5" + 2;
+console.log(result); // "52"
+console.log(typeof result); // string
+
+🔹 The + operator triggers string concatenation.
+🔹 So the number 2 becomes a string "2".
+
+👉 Example 2: String - Number
+let result = "10" - 5;
+console.log(result); // 5
+console.log(typeof result); // number
+
+🔹 The - operator only works with numbers, so "10" is converted to 10.
+
+👉 Example 3: Boolean with Numbers
+console.log(true + 1);   // 2
+console.log(false + 1);  // 1
+
+🔹 true → 1
+🔹 false → 0
+
+👉 Example 4: null and undefined
+console.log(null + 5);      // 5
+console.log(undefined + 5); // NaN
+
+🔹null is converted to 0
+🔹undefined becomes NaN (Not a Number)
+
+👉 Example 5: NaN in Operations
+console.log("Hello" - 2); // NaN
+console.log(NaN + 5);     // NaN
+
+ 🔹Any operation with NaN results in NaN.
+
+👉 Example 6: Comparisons
+console.log(5 == "5");   // true (coercion)
+console.log(5 === "5");  // false (no coercion)
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+
+ 🔹 == allows type conversion
+ 🔹 === checks value and type (recommended)
+
+ 🪄 2. Explicit Type Conversion (Type Casting)
+
+This is when you manually convert one data type to another using built-in functions like Number(), String(), Boolean(), etc.
+
+🔸 Convert to String
+Using String() or .toString()
+let num = 25;
+let bool = true;
+
+console.log(String(num));      // "25"
+console.log(bool.toString());  // "true"
+console.log(String(null));     // "null"
+console.log(String(undefined)); // "undefined"
+console.log(String(NaN));      // "NaN"
+
+
+✅ Converts any value into a readable string.
+
+👉 Convert to Number
+
+Using Number(), parseInt(), parseFloat()
+console.log(Number("123"));    // 123
+console.log(Number("123.45")); // 123.45
+console.log(parseInt("10px")); // 10
+console.log(parseFloat("10.5px")); // 10.5
+
+console.log(Number(true));  // 1
+console.log(Number(false)); // 0
+console.log(Number(null));  // 0
+console.log(Number(undefined)); // NaN
+console.log(Number("Hello"));   // NaN
+
+🔸 parseInt() and parseFloat() are useful for extracting numbers from strings.
+Number() is stricter — it returns NaN if conversion fails.
+
+👉 Convert to Boolean
+
+Using Boolean()
+console.log(Boolean(1));        // true
+console.log(Boolean(0));        // false
+console.log(Boolean("Hello"));  // true
+console.log(Boolean(""));       // false
+console.log(Boolean(null));     // false
+console.log(Boolean(undefined));// false
+console.log(Boolean(NaN));      // false
+
+
+🔸 Values that become false are called Falsy Values.
+   They are:
+           0, "", null, undefined, NaN, false
+🔸Everything else is truthy.
+
+You can check the type of any variable using typeof:
+
+console.log(typeof 123);        // "number"
+console.log(typeof "hello");    // "string"
+console.log(typeof true);       // "boolean"
+console.log(typeof undefined);  // "undefined"
+console.log(typeof null);       // "object" ❗ (JavaScript quirk)
+console.log(typeof NaN);        // "number"
+
+🔸 Use explicit conversions for clarity.
+🔸 Avoid relying on implicit coercion, especially with ==.
+
+In short: Be explicit when converting types — JavaScript is helpful, but sometimes too helpful!
